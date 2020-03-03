@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combined Projects</title>
+    <link type="text/css" rel="stylesheet" href="styles.css" media="all">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Forum</h1>
+    </header>
+
+    <section>
+        <p>Please input your credentials to enter</p>
+
+        <form method="post" action="authorization">
+            <table>
+                <tr>
+                    <th><span>Login: </span></th>
+                    <th><input type="text" name="login" id="login" placeholder="your login" required autofocus></th>
+                </tr>
+                <tr>
+                    <th><span>Password: </span></th>
+                    <th><input type="password" name="password" id="password" placeholder="your password" required></th>
+                </tr>
+            </table>
+            <p>${authorizationResult}</p>
+            <input type="submit" value="Enter">
+        </form>
+        <p>Still don't have an account? <a href="http://localhost:9713/combinedprojects/registration">Join now</a>
+        </p>
+    </section>
+
+</body>
+</html>

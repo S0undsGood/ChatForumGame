@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link type="text/css" rel="stylesheet" href="styles.css" media="all">
+
+    <script type="text/javascript">
+        var ws = new WebSocket("ws://localhost:9713/combinedprojects/chat");
+        ws.onopen = function (event) {
+
+        };
+        ws.onmessage = function (event) {
+            var $textarea = document.getElementById("chat");
+            $textarea.value = $textarea.value + event.data + "\n";
+        };
+        ws.onclose = function (event) {
+
+        };
+        function sendMessage() {
+            var messageField = document.getElementById("usermsg");
+            var userNameField = document.getElementById("username");
+            var message = messageField.value;
+            ws.send(message);
+            messageField.value = '';
+        };
+    </script>
+</head>
+<body>
+    <p>Your login: ${login}</p>
+    <textarea name="chat" readonly id="chat" rows="10" cols="50"></textarea>
+    <p>
+        <form name="message" action="">
+            <input type="text" name="usermsg" id="usermsg" size="54">
+            <input type="button" name="sendmsg" id="sendmsg" value="Send" onclick="sendMessage();">
+        </form>
+    </p>
+
+    <p><button id="toMainpage" name="toMainPage" onclick="document.location='mainpage'">To the main page</button></p>
+</body>
+</html>

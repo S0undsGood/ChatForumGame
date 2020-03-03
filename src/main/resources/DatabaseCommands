@@ -1,0 +1,3 @@
+1. Создание таблицы topics
+CREATE TABLE topics(id SERIAL PRIMARY KEY, user_id INT NOT NULL REFERENCES users(user_id), topic_name VARCHAR NOT NULL, created TIMESTAMP);
+
